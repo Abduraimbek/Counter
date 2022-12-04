@@ -27,7 +27,7 @@ class CounterPage extends StatelessWidget {
             Consumer<Counter>(
               builder: (context, value, child) {
                 return Text(
-                  '${value.counter}',
+                  '${value.count}',
                   style: Theme.of(context).textTheme.headline4,
                 );
               },

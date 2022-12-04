@@ -11,7 +11,7 @@ class Counter extends _$Counter {
     return const CounterState(count: 0);
   }
 
-  void incrementPressed() => state = state.copyWith(count: state.count + 1);
+  void increment() => state = CounterState(count: state.count + 1);
 }
 
 @freezed

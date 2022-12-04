@@ -6,5 +6,5 @@ part 'counter_state.dart';
 class CounterCubit extends Cubit<CounterState> {
   CounterCubit() : super(const CounterState(count: 0));
 
-  void incrementPressed() => emit(state.copyWith(count: state.count + 1));
+  void increment() => emit(CounterState(count: state.count + 1));
 }

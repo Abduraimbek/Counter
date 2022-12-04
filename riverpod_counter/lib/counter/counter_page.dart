@@ -32,7 +32,7 @@ class CounterPage extends ConsumerWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => ref.read(counterProvider.notifier).incrementPressed(),
+        onPressed: () => ref.read(counterProvider.notifier).increment(),
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),

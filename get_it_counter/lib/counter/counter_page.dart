@@ -51,7 +51,7 @@ class _CounterPageState extends State<CounterPage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => getIt<CounterModel>().incrementPressed(),
+        onPressed: () => getIt<CounterModel>().increment(),
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),

@@ -37,7 +37,7 @@ class CounterPage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Get.find<CounterController>().incrementPressed(),
+        onPressed: () => Get.find<CounterController>().increment(),
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),

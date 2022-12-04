@@ -1,4 +1,4 @@
-import 'package:bloc_counter/counter/bloc/counter_bloc.dart';
+import 'package:cubit_counter/counter/cubit/counter_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,7 +24,7 @@ class CounterPage extends StatelessWidget {
               'You have pushed the button this many times:',
               textAlign: TextAlign.center,
             ),
-            BlocBuilder<CounterBloc, CounterState>(
+            BlocBuilder<CounterCubit, CounterState>(
               builder: (context, state) {
                 return Text(
                   '${state.count}',
@@ -36,8 +36,7 @@ class CounterPage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () =>
-            context.read<CounterBloc>().add(CounterIncrementPressed()),
+        onPressed: () => context.read<CounterCubit>().incrementPressed(),
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),

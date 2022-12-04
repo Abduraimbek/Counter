@@ -5,10 +5,9 @@ part 'counter_event.dart';
 part 'counter_state.dart';
 
 class CounterBloc extends Bloc<CounterEvent, CounterState> {
-  CounterBloc() : super(CounterCountState(count: 0)) {
+  CounterBloc() : super(const CounterState(count: 0)) {
     on<CounterIncrementPressed>((event, emit) {
-      final currState = state as CounterCountState;
-      emit(currState.copyWith(count: currState.count + 1));
+      emit(state.copyWith(count: state.count + 1));
     });
   }
 }

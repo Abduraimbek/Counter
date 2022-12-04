@@ -19,7 +19,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: CounterPage(),
+      title: 'Provider Counter',
+      home: CounterPage(title: 'Provider Counter'),
     );
   }
 }

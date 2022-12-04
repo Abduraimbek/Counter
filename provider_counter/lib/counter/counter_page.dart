@@ -3,13 +3,18 @@ import 'package:provider/provider.dart';
 import 'package:provider_counter/counter/counter.dart';
 
 class CounterPage extends StatelessWidget {
-  const CounterPage({super.key});
+  const CounterPage({
+    super.key,
+    required this.title,
+  });
+
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Provider Counter'),
+        title: Text(title),
       ),
       body: Center(
         child: Column(

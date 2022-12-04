@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_counter/providers/counter.dart';
+import 'package:provider_counter/counter/counter.dart';
 
 class CounterPage extends StatelessWidget {
   const CounterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final counter = context.watch<Counter>();
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Provider Counter'),
@@ -21,15 +19,19 @@ class CounterPage extends StatelessWidget {
               'You have pushed the button this many times:',
               textAlign: TextAlign.center,
             ),
-            Text(
-              '${counter.counter}',
-              style: Theme.of(context).textTheme.headline4,
+            Consumer<Counter>(
+              builder: (context, value, child) {
+                return Text(
+                  '${value.counter}',
+                  style: Theme.of(context).textTheme.headline4,
+                );
+              },
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: context.read<Counter>().increment,
+        onPressed: () => context.read<Counter>().increment(),
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),

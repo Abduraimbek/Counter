@@ -26,7 +26,7 @@ class CounterPage extends ConsumerWidget {
             ),
             Text(
               '${ref.watch(counterProvider).count}',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
         ),

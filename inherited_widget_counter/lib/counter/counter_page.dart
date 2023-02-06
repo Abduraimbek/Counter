@@ -1,6 +1,6 @@
-import 'package:bloc_counter/counter/bloc/counter_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'counter.dart';
 
 class CounterPage extends StatelessWidget {
   const CounterPage({
@@ -12,6 +12,8 @@ class CounterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final counter = InheritedCounter.of(context).counter;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -24,10 +26,11 @@ class CounterPage extends StatelessWidget {
               'You have pushed the button this many times:',
               textAlign: TextAlign.center,
             ),
-            BlocBuilder<CounterBloc, CounterState>(
-              builder: (context, state) {
+            AnimatedBuilder(
+              animation: counter,
+              builder: (context, child) {
                 return Text(
-                  '${state.count}',
+                  '${counter.getCount}',
                   style: Theme.of(context).textTheme.headlineMedium,
                 );
               },
@@ -36,8 +39,7 @@ class CounterPage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () =>
-            context.read<CounterBloc>().add(CounterIncrementPressed()),
+        onPressed: () => counter.increment(),
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),

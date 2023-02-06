@@ -28,7 +28,7 @@ class CounterPage extends StatelessWidget {
               builder: (context, state) {
                 return Text(
                   '${state.count}',
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.headlineMedium,
                 );
               },
             ),
